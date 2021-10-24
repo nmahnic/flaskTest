@@ -9,12 +9,16 @@ api = Api(app)
 @api.resource('/user/')
 class userList(Resource):
     def get(self):
-        print(model.User.select())
-        # for a in model.User.select():
-            # print(a)
-        print(model.finder("Nicolas"))
-        return jsonify()
-        # return jsonify([a.name for a in model.User.select()])
+        a = model.listAlluser()
+        # print(a)
+        return jsonify(a)
+
+@api.resource('/dum/')
+class dumList(Resource):
+    def get(self):
+        a = model.listAlldum()
+        # print(a)
+        return jsonify(a)
 
 if __name__ == '__main__':
     app.run(debug=True)
