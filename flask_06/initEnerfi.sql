@@ -27,9 +27,9 @@ USE Enerfi;
 CREATE TABLE `user`
 (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `user_name` VARCHAR(50) NOT NULL,
+    `name` VARCHAR(50) NOT NULL,
     `surname` VARCHAR(50) NOT NULL,
-    `userName` VARCHAR(50) NOT NULL,
+    `usernick` VARCHAR(50) NOT NULL,
     `password` VARCHAR(50) NOT NULL,
     `mail` VARCHAR(80) NOT NULL,
 
@@ -38,12 +38,12 @@ CREATE TABLE `user`
 
 CREATE TABLE `meter`
 (
-    `meterID` INT NOT NULL AUTO_INCREMENT,
+    `id` INT NOT NULL AUTO_INCREMENT,
     `macAddress` VARCHAR(50),
     `ip` VARCHAR(50),
     `user_id_id` INT,
     `dum_id_id` INT,
-    CONSTRAINT `PK_meter` PRIMARY KEY  (`meterID`)
+    CONSTRAINT `PK_meter` PRIMARY KEY  (`id`)
 );
 
 CREATE TABLE `dum`
@@ -56,7 +56,7 @@ CREATE TABLE `dum`
 
 CREATE TABLE `measure`
 (
-    `measureID` INT NOT NULL AUTO_INCREMENT,
+    `id` INT NOT NULL AUTO_INCREMENT,
     `dum_id_id` INT,
     `timeStamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `vrms` FLOAT,
@@ -75,7 +75,7 @@ CREATE TABLE `measure`
     `freq_8th` FLOAT,
     `freq_9th` FLOAT,
     `freq_10th` FLOAT,
-    CONSTRAINT `PK_measureID` PRIMARY KEY  (`measureID`)
+    CONSTRAINT `PK_measureID` PRIMARY KEY  (`id`)
 );
 
 /*******************************************************************************
@@ -100,11 +100,11 @@ ALTER TABLE `measure` ADD CONSTRAINT `FK_measureDUMID`
 /*******************************************************************************
    Populate Tables
 ********************************************************************************/
-INSERT INTO `user` (`user_name`,`surname`,`userName`,`password`,`mail`) VALUES ('Nicolas','Mahnic','Mash','1234','nico.mahnic@gmail.com');
-INSERT INTO `user` (`user_name`,`surname`,`userName`,`password`,`mail`) VALUES ('Juan Manuel','Deseta','Juanma','1234','juanmanueldeseta@gmail.com');
-INSERT INTO `user` (`user_name`,`surname`,`userName`,`password`,`mail`) VALUES ('Juan Ignacio','Figueiras','Juani','1234','juanifigueiras@gmail.com');
-INSERT INTO `user` (`user_name`,`surname`,`userName`,`password`,`mail`) VALUES ('Eric','Ortiz','Ericovich','1234','eric95ortiz@gmail.com');
-INSERT INTO `user` (`user_name`,`surname`,`userName`,`password`,`mail`) VALUES ('Tiago','Monteiro','TiagoMedidas','1234','tmonteiro@frba.utn.edu.ar');
+INSERT INTO `user` (`name`,`surname`,`usernick`,`password`,`mail`) VALUES ('Nicolas','Mahnic','Mash','1234','nico.mahnic@gmail.com');
+INSERT INTO `user` (`name`,`surname`,`usernick`,`password`,`mail`) VALUES ('Juan Manuel','Deseta','Juanma','1234','juanmanueldeseta@gmail.com');
+INSERT INTO `user` (`name`,`surname`,`usernick`,`password`,`mail`) VALUES ('Juan Ignacio','Figueiras','Juani','1234','juanifigueiras@gmail.com');
+INSERT INTO `user` (`name`,`surname`,`usernick`,`password`,`mail`) VALUES ('Eric','Ortiz','Ericovich','1234','eric95ortiz@gmail.com');
+INSERT INTO `user` (`name`,`surname`,`usernick`,`password`,`mail`) VALUES ('Tiago','Monteiro','TiagoMedidas','1234','tmonteiro@frba.utn.edu.ar');
 INSERT INTO `dum` (`user_id_id`,`name`) VALUES (1, 'Heladera');
 INSERT INTO `dum` (`user_id_id`,`name`) VALUES (1, 'Lavarropas');
 INSERT INTO `dum` (`user_id_id`,`name`) VALUES (2, 'Lavarropas');

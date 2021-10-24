@@ -13,10 +13,10 @@ so.sqlhub.processConnection = connection
 class User(so.SQLObject):
     class sqlmeta:
         table = "user"
-    user_name = so.StringCol(length=50, varchar=True)
+    name = so.StringCol(length=50, varchar=True)
     surname = so.StringCol(length=50, varchar=True)
     surname = so.StringCol(length=50, varchar=True)
-    userName = so.StringCol(length=50, varchar=True)
+    usernick = so.StringCol(length=50, varchar=True)
     password = so.StringCol(length=50, varchar=True)
     mail = so.StringCol(length=50, varchar=True)
 
