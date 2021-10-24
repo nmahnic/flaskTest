@@ -3,7 +3,7 @@ import requests
 import urllib.parse
 from pprint import pprint
 
-URL = 'http://localhost:5000/artists/'
+URL = 'http://localhost:4000/artists/'
 
 r = requests.get(URL)
 
@@ -11,7 +11,7 @@ print(r.status_code)
 pprint(r.json())
 print(type(r.json()))
 
-while(True):
+"""while(True):
     name = input('--> ').replace('/', '|')
     if name == '':
         break
@@ -21,4 +21,4 @@ while(True):
         pprint(r.json())
         print(type(r.json()))
     else:
-        print(r.text)
+        print(r.text)"""

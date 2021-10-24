@@ -7,18 +7,11 @@ app = Flask(__name__)
 api = Api(app)
 
 
-@api.resource('/artists2/')
+@api.resource('/artists/')
 class ArtistsList(Resource):
     def get(self):
-        print(model.Artist.select())
-        return jsonify([a.name for a in model.Artist.select()])
-
-
-@api.resource('/artists/')
-class ArtistAndAlbums(Resource):
-    def get(self):
-        return jsonify(model.finder("Nash Ensemble".replace('|', '/')))
-
+        return jsonify(model.listAll())
+        # return jsonify(model.finder("Itzhak Perlman".replace('|', '/')))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=4000)

@@ -27,3 +27,8 @@ def finder(name):
     d = to_dict(artist)
     d['albums'] = [to_dict(album) for album in albums]
     return d
+
+def listAll():
+    artists = Artist.select()
+    d = [to_dict(artist) for artist in artists]
+    return d
