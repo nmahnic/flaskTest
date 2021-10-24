@@ -1,0 +1,6 @@
+Flask-RESTful==0.3.9
+paho-mqtt==1.6.1
+PyYAML==6.0
+requests==2.26.0
+SQLObject==3.9.1
+Twisted==21.7.0
